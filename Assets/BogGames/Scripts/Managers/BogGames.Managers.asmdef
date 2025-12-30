@@ -1,0 +1,16 @@
+{
+    "name": "BogGames.Managers",
+    "rootNamespace": "BogGames.Managers",
+    "references": [
+        "GUID:124d83347c7c0495db590a17546d963a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,479 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1349921935949149931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 161995411622765183}
+  - component: {fileID: 4099466623388595253}
+  - component: {fileID: 8163768333075532551}
+  - component: {fileID: 4046687956609443437}
+  - component: {fileID: 4010577408481255398}
+  - component: {fileID: 3945308073152102254}
+  m_Layer: 0
+  m_Name: SimpleCarGroup_1
+  m_TagString: Car
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &161995411622765183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349921935949149931}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 903610522513021843}
+  - {fileID: 6024465252523016675}
+  - {fileID: 3804766586809956173}
+  - {fileID: 7055357624748885583}
+  - {fileID: 3637979056202304114}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4099466623388595253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349921935949149931}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4a3abb28604ca4b948543138f50194ce, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BogGames.Gameplay.WavingCar, BogGames.Gameplay
+        m_MethodName: WaveBack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8163768333075532551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349921935949149931}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443c01a45bac24c68b4012146d64a0a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTag: Player
+  objectHitCollider:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 58e650cdf84204dac8fb1cc50be8d5c4, type: 2}
+        m_TargetAssemblyTypeName: BogGames.Events.ScriptableGameEvent, BogGames.Events
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  objectStaysCollider:
+    m_PersistentCalls:
+      m_Calls: []
+  objectLeftCollider:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!54 &4046687956609443437
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349921935949149931}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!65 &4010577408481255398
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349921935949149931}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.18, y: 0.18, z: 0.45}
+  m_Center: {x: 0, y: 0.1, z: 0}
+--- !u!114 &3945308073152102254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349921935949149931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505b320f56f264a8e94928b32e491326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  exitTarget: {fileID: 0}
+  maxLifetime: 30
+  includeInactive: 1
+--- !u!1001 &1353137757149392697
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 161995411622765183}
+    m_Modifications:
+    - target: {fileID: 8299824042535201142, guid: 152794923935e425e81ca07bdced24c0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 152794923935e425e81ca07bdced24c0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 152794923935e425e81ca07bdced24c0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.9542503
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 152794923935e425e81ca07bdced24c0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 152794923935e425e81ca07bdced24c0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 152794923935e425e81ca07bdced24c0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 152794923935e425e81ca07bdced24c0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 152794923935e425e81ca07bdced24c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 152794923935e425e81ca07bdced24c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 152794923935e425e81ca07bdced24c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705887959329390860, guid: 152794923935e425e81ca07bdced24c0, type: 3}
+      propertyPath: m_Name
+      value: BogVanMan
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 152794923935e425e81ca07bdced24c0, type: 3}
+--- !u!4 &7055357624748885583 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8299824042535201142, guid: 152794923935e425e81ca07bdced24c0, type: 3}
+  m_PrefabInstance: {fileID: 1353137757149392697}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2357026118975826069
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 161995411622765183}
+    m_Modifications:
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.7102504
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705887959329390860, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_Name
+      value: BogCar (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+--- !u!4 &6024465252523016675 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+  m_PrefabInstance: {fileID: 2357026118975826069}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4706920575769076484
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 161995411622765183}
+    m_Modifications:
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.5807495
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705887959329390860, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_Name
+      value: BogCar (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+--- !u!4 &3637979056202304114 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+  m_PrefabInstance: {fileID: 4706920575769076484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5180224735054372411
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 161995411622765183}
+    m_Modifications:
+    - target: {fileID: 8299824042535201142, guid: 882290e4fc10b4201a305e944c2f851b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 882290e4fc10b4201a305e944c2f851b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 882290e4fc10b4201a305e944c2f851b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.989751
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 882290e4fc10b4201a305e944c2f851b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 882290e4fc10b4201a305e944c2f851b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 882290e4fc10b4201a305e944c2f851b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 882290e4fc10b4201a305e944c2f851b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 882290e4fc10b4201a305e944c2f851b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 882290e4fc10b4201a305e944c2f851b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 882290e4fc10b4201a305e944c2f851b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705887959329390860, guid: 882290e4fc10b4201a305e944c2f851b, type: 3}
+      propertyPath: m_Name
+      value: BogPigCar
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 882290e4fc10b4201a305e944c2f851b, type: 3}
+--- !u!4 &3804766586809956173 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8299824042535201142, guid: 882290e4fc10b4201a305e944c2f851b, type: 3}
+  m_PrefabInstance: {fileID: 5180224735054372411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9197653384398582501
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 161995411622765183}
+    m_Modifications:
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705887959329390860, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+      propertyPath: m_Name
+      value: BogCar
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+--- !u!4 &903610522513021843 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8299824042535201142, guid: 60ca854ed11ae4ee185ec13d640c6d38, type: 3}
+  m_PrefabInstance: {fileID: 9197653384398582501}
+  m_PrefabAsset: {fileID: 0}

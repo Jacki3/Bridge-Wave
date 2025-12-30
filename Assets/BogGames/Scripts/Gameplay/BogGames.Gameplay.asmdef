@@ -1,0 +1,21 @@
+{
+    "name": "BogGames.Gameplay",
+    "rootNamespace": "BogGames.Gameplay",
+    "references": [
+        "GUID:70ed9fd71715943c68915207749b84c1",
+        "GUID:124d83347c7c0495db590a17546d963a",
+        "GUID:c69c429d439f04a1e950ff373fd71feb",
+        "GUID:8d0a94b7b298048f5a3101c6f9513ab9",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:45e5cec673b9b48cb943621a05ed45e5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

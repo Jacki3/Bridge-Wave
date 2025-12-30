@@ -1,0 +1,18 @@
+{
+    "name": "BogGames.UI",
+    "rootNamespace": "BogGames.UI",
+    "references": [
+        "GUID:124d83347c7c0495db590a17546d963a",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:f74289b02f7c64e02a1588cb8a4b9e38"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
