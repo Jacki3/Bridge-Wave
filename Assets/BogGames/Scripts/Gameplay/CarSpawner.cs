@@ -6,6 +6,9 @@ using System.Linq;
 
 namespace BogGames.Gameplay
 {
+    public enum Side { Left, Right, Middle }
+    public enum Channel { BelowLeft, BelowRight, Bridge }   
+
     [CreateAssetMenu(fileName = "Bog Car Choices", menuName = "Scriptable Objects/BogCarChoiceList")]
     public class BogCarChoices : ScriptableObject
     {
@@ -32,6 +35,7 @@ namespace BogGames.Gameplay
         [SerializeField] protected BogFloatVariable defaultWaitTime;
         [SerializeField] protected BogFloatVariable speedMultiplier;
         [SerializeField] protected BogFloatVariable rarityMultiplier;
+        [SerializeField] protected BogFloatVariable campingRarityMultiplier;
         [Header("Events")]
         [SerializeField] protected UnityEngine.Events.UnityEvent onCarSpawned;
         [SerializeField] protected UnityEngine.Events.UnityEvent onLastCarSpawned;
@@ -185,10 +189,15 @@ namespace BogGames.Gameplay
             if(cars.Count <= 0)
                 return null;
 
+            float campingMulti = 0;
+            if(campingRarityMultiplier)
+                campingMulti = campingRarityMultiplier.Value;
+
             float totalWeight = 0f;
             foreach (var obj in cars)
             {
-                float weight = Mathf.Pow(obj.CarRarity, 1f / rarityMultiplier.Value);
+
+                float weight = Mathf.Pow(obj.CarRarity, 1f / (rarityMultiplier.Value + campingMulti));
                 totalWeight += weight;
             }
 
@@ -197,7 +206,7 @@ namespace BogGames.Gameplay
             float cumulative = 0f;
             foreach (var obj in cars)
             {
-                float weight = Mathf.Pow(obj.CarRarity, 1f / rarityMultiplier.Value);
+                float weight = Mathf.Pow(obj.CarRarity, 1f / (rarityMultiplier.Value + campingMulti));
                 cumulative += weight;
 
                 if (randomValue <= cumulative)

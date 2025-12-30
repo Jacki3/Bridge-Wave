@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0de87e54c3ca4460b8953abf9372d0f, type: 3}
-  m_Name: PlayerSide
-  m_EditorClassIdentifier: 
-  value: 2
+  m_Script: {fileID: 11500000, guid: 1c96ce684e509477e871844d3db8c1ad, type: 3}
+  m_Name: CampingRarityMultiplierR
+  m_EditorClassIdentifier: BogGames.Variables::BogGames.Variables.BogFloatVariable
+  value: 0
+  minValueAllowed: 0

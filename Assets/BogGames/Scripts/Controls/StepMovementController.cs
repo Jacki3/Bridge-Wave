@@ -74,6 +74,7 @@ namespace BogGames.Controls
             }
             else
             {
+                currentSide = Side.Middle;
                 isCrossing = true;
             }
 

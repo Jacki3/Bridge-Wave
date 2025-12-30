@@ -1110,6 +1110,7 @@ MonoBehaviour:
     max: {fileID: 0}
   defaultWaitTimeVar: {fileID: 0}
   speedMultiplier: {fileID: 11400000, guid: b7e993b7bd26b4ae6a1f7aa6a752556e, type: 2}
+  campingDampener: {fileID: 0}
   sliderValueVar: {fileID: 11400000, guid: ea5f27c8796d048f29e8f5d9c283bdb3, type: 2}
   onTimeUp:
     m_PersistentCalls:
@@ -2073,6 +2074,7 @@ MonoBehaviour:
     max: {fileID: 11400000, guid: 472123908777449948d6be4d65d61d0a, type: 2}
   defaultWaitTimeVar: {fileID: 11400000, guid: 9bbd9c7c5c24649c197d7a2a730d070a, type: 2}
   speedMultiplier: {fileID: 11400000, guid: 3ac8f24f9975b4b8abcfc47d148f34a4, type: 2}
+  campingDampener: {fileID: 11400000, guid: 018bd1b05df67416abf6176642af2da2, type: 2}
   sliderValueVar: {fileID: 0}
   onTimeUp:
     m_PersistentCalls:
@@ -3197,6 +3199,7 @@ MonoBehaviour:
   defaultWaitTime: {fileID: 11400000, guid: 84a887a1d6aa14402ab9eee001376f2e, type: 2}
   speedMultiplier: {fileID: 11400000, guid: 6c7ad1c6a41af4618b80782754c8571b, type: 2}
   rarityMultiplier: {fileID: 11400000, guid: d480476f766294dda9a50a91e26a5870, type: 2}
+  campingRarityMultiplier: {fileID: 0}
   onCarSpawned:
     m_PersistentCalls:
       m_Calls:
@@ -4248,6 +4251,7 @@ MonoBehaviour:
   defaultWaitTime: {fileID: 11400000, guid: 9bbd9c7c5c24649c197d7a2a730d070a, type: 2}
   speedMultiplier: {fileID: 11400000, guid: 6c7ad1c6a41af4618b80782754c8571b, type: 2}
   rarityMultiplier: {fileID: 11400000, guid: d480476f766294dda9a50a91e26a5870, type: 2}
+  campingRarityMultiplier: {fileID: 11400000, guid: 29bb36056c70444d1930d48c44bde774, type: 2}
   onCarSpawned:
     m_PersistentCalls:
       m_Calls:
@@ -4730,6 +4734,7 @@ MonoBehaviour:
   defaultWaitTime: {fileID: 11400000, guid: 9755ecdd87321465b8166dbff8007050, type: 2}
   speedMultiplier: {fileID: 11400000, guid: 6c7ad1c6a41af4618b80782754c8571b, type: 2}
   rarityMultiplier: {fileID: 11400000, guid: d480476f766294dda9a50a91e26a5870, type: 2}
+  campingRarityMultiplier: {fileID: 11400000, guid: 6734592aa4ec340cd83f9271fdc17251, type: 2}
   onCarSpawned:
     m_PersistentCalls:
       m_Calls:
@@ -11600,6 +11605,7 @@ MonoBehaviour:
     max: {fileID: 11400000, guid: 472123908777449948d6be4d65d61d0a, type: 2}
   defaultWaitTimeVar: {fileID: 11400000, guid: 0a2c87d28606947a5a354292f4a429b7, type: 2}
   speedMultiplier: {fileID: 11400000, guid: 3ac8f24f9975b4b8abcfc47d148f34a4, type: 2}
+  campingDampener: {fileID: 0}
   sliderValueVar: {fileID: 0}
   onTimeUp:
     m_PersistentCalls:
@@ -11629,6 +11635,57 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1457074586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1457074588}
+  - component: {fileID: 1457074587}
+  m_Layer: 0
+  m_Name: CampingTimerR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1457074587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457074586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fecd31c7f791433ab3ece701e12e19d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: BogGames.Gameplay::BogGames.Gameplay.CampingTimer
+  playerSideVariable: {fileID: 11400000, guid: bb68e3032d1734d72a394dd402d0806f, type: 2}
+  campingDampener: {fileID: 11400000, guid: 018bd1b05df67416abf6176642af2da2, type: 2}
+  campingRarityMultiplier: {fileID: 11400000, guid: 29bb36056c70444d1930d48c44bde774, type: 2}
+  playerSide: 1
+  waitTime: 5
+  targetValue: 5
+  timeToFill: 25
+--- !u!4 &1457074588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457074586}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.19768, y: -1, z: 3.15563}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1479208419
 GameObject:
   m_ObjectHideFlags: 0
@@ -14365,6 +14422,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec7f610166d114ee3a3ecd2f849ecd92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1603409299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1603409301}
+  - component: {fileID: 1603409300}
+  m_Layer: 0
+  m_Name: CampingTimerL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1603409300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603409299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fecd31c7f791433ab3ece701e12e19d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: BogGames.Gameplay::BogGames.Gameplay.CampingTimer
+  playerSideVariable: {fileID: 11400000, guid: bb68e3032d1734d72a394dd402d0806f, type: 2}
+  campingDampener: {fileID: 11400000, guid: 396048782fc77430d8a7309f51d1a24b, type: 2}
+  campingRarityMultiplier: {fileID: 11400000, guid: 6734592aa4ec340cd83f9271fdc17251, type: 2}
+  playerSide: 0
+  waitTime: 5
+  targetValue: 5
+  timeToFill: 25
+--- !u!4 &1603409301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603409299}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.19768, y: -1, z: 3.15563}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1608832790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17476,6 +17584,54 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 396048782fc77430d8a7309f51d1a24b, type: 2}
+        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
+        m_MethodName: OnReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 018bd1b05df67416abf6176642af2da2, type: 2}
+        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
+        m_MethodName: OnReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 29bb36056c70444d1930d48c44bde774, type: 2}
+        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
+        m_MethodName: OnReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 6734592aa4ec340cd83f9271fdc17251, type: 2}
+        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
+        m_MethodName: OnReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1873264589}
         m_TargetAssemblyTypeName: MoreMountains.Feedbacks.MMF_Player, MoreMountains.Tools
         m_MethodName: PlayFeedbacks
@@ -20110,6 +20266,7 @@ MonoBehaviour:
   defaultWaitTime: {fileID: 11400000, guid: 0a2c87d28606947a5a354292f4a429b7, type: 2}
   speedMultiplier: {fileID: 11400000, guid: 6c7ad1c6a41af4618b80782754c8571b, type: 2}
   rarityMultiplier: {fileID: 11400000, guid: d480476f766294dda9a50a91e26a5870, type: 2}
+  campingRarityMultiplier: {fileID: 0}
   onCarSpawned:
     m_PersistentCalls:
       m_Calls:
@@ -20359,6 +20516,7 @@ MonoBehaviour:
     max: {fileID: 11400000, guid: 472123908777449948d6be4d65d61d0a, type: 2}
   defaultWaitTimeVar: {fileID: 11400000, guid: 9755ecdd87321465b8166dbff8007050, type: 2}
   speedMultiplier: {fileID: 11400000, guid: 3ac8f24f9975b4b8abcfc47d148f34a4, type: 2}
+  campingDampener: {fileID: 11400000, guid: 018bd1b05df67416abf6176642af2da2, type: 2}
   sliderValueVar: {fileID: 0}
   onTimeUp:
     m_PersistentCalls:
@@ -21296,6 +21454,7 @@ MonoBehaviour:
     max: {fileID: 11400000, guid: 472123908777449948d6be4d65d61d0a, type: 2}
   defaultWaitTimeVar: {fileID: 11400000, guid: 84a887a1d6aa14402ab9eee001376f2e, type: 2}
   speedMultiplier: {fileID: 11400000, guid: 3ac8f24f9975b4b8abcfc47d148f34a4, type: 2}
+  campingDampener: {fileID: 0}
   sliderValueVar: {fileID: 0}
   onTimeUp:
     m_PersistentCalls:
@@ -22807,3 +22966,5 @@ SceneRoots:
   - {fileID: 555581799}
   - {fileID: 950343710}
   - {fileID: 1246739031}
+  - {fileID: 1457074588}
+  - {fileID: 1603409301}

@@ -1,10 +1,7 @@
 using UnityEngine;
 
 namespace BogGames.Gameplay
-{
-    public enum Side { Left, Right }
-    public enum Channel { BelowLeft, BelowRight, Bridge }   
-    
+{    
     public class TrafficConductor : MonoBehaviour
     {
         [Header("Rates (baseline per side)")]

@@ -16,6 +16,7 @@ namespace BogGames.Gameplay
         public BogFloatRange defaultWaitTimeRange;
         public BogFloatVariable defaultWaitTimeVar;
         public BogFloatVariable speedMultiplier;
+        public BogFloatVariable campingDampener;
         public BogFloatVariable sliderValueVar;
         public UnityEvent onTimeUp;
 
@@ -65,6 +66,8 @@ namespace BogGames.Gameplay
             defaultWaitTimeVar.Value = defaultWait;
 
             timer = value.Value + defaultWait;
+            if(campingDampener)
+                timer +=  campingDampener.Value;    
             timerStarted = true;
         }
 
@@ -91,6 +94,9 @@ namespace BogGames.Gameplay
             defaultWaitTimeVar.Value = defaultWait;
 
             timer = value.Value + defaultWait;
+
+            if(campingDampener)
+                timer +=  campingDampener.Value;    
         }
 
         private float GetRandomWait()
