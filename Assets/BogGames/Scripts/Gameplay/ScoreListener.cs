@@ -5,6 +5,7 @@ namespace BogGames.Gameplay
 {
     public class ScoreListener : MonoBehaviour
     {
+        [SerializeField] protected float maxMultiplier = 10;
         [SerializeField] protected MovingCarVariable activeCar;
         [SerializeField] protected BogGames.Variables.BogIntegerVariable scoreVariable;
         [SerializeField] protected BogGames.Variables.BogIntegerVariable activeCarScore;
@@ -45,7 +46,8 @@ namespace BogGames.Gameplay
         public void IncreaseMultiplier(int amount)
         {
             var scoreManager = BogSingleton.Instance.ScoreManager;
-            scoreManager?.IncreaseMultiplier(amount);
+            if(scoreManager.Multiplier + amount <= maxMultiplier)
+                scoreManager?.IncreaseMultiplier(amount);
             if(multiplierVariable)
                 multiplierVariable.Value = scoreManager.Multiplier;
         }

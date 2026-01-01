@@ -1,4 +1,4 @@
-using UnityEngine;
+    using UnityEngine;
 
 namespace BogGames.Variables
 {
@@ -6,10 +6,11 @@ namespace BogGames.Variables
     public class BogFloatVariable : BogBaseVariable<float>
     {
         [SerializeField] protected float minValueAllowed;
+        [SerializeField] protected float maxValueAllowed;
 
         public override void Add(float value)
         {
-            Value += value;
+            Value = Mathf.Max(Value + value, maxValueAllowed);
         }
 
         public override void Subtract(float value)

@@ -36,6 +36,8 @@ namespace BogGames.Controls
         public TrafficConductor trafficManager;
         public BogSideVariable playerSide;
         public BogBooleanVariable playerCrossing;
+        public BogFloatVariable stepDecrease;
+        public BogFloatVariable stepIncrease;
 
         private InputSystem_Actions controls;
         private float lastStepTime;
@@ -105,7 +107,9 @@ namespace BogGames.Controls
 
         public void TryStep(int direction)
         {
-            if (Time.time - lastStepTime < stepCooldown)
+            float currentCooldown = stepCooldown + (stepIncrease?.Value ?? 0) - (stepDecrease?.Value ?? 0);
+
+            if (Time.time - lastStepTime < currentCooldown)
                 return;
 
             lastStepTime = Time.time;
@@ -121,7 +125,9 @@ namespace BogGames.Controls
 
         public void TryStepNoInput()
         {
-            if (Time.time - lastStepTime < stepCooldown)
+            float currentCooldown = stepCooldown + (stepIncrease?.Value ?? 0) - (stepDecrease?.Value ?? 0);
+
+            if (Time.time - lastStepTime < currentCooldown)
                 return;
 
             lastStepTime = Time.time;

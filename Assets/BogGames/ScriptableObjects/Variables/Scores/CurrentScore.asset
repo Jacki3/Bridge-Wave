@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: CurrentScore
   m_EditorClassIdentifier: 
   value: 0
+  minValueAllowed: 0

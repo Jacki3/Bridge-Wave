@@ -618,74 +618,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89534683}
   m_CullTransparentMesh: 1
---- !u!1 &106886378
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 106886379}
-  m_Layer: 0
-  m_Name: Exit
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &106886379
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106886378}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 34.39975}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1284985017}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!1 &125504530
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 125504531}
-  m_Layer: 0
-  m_Name: Traffic
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &125504531
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125504530}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1062496671}
-  - {fileID: 1116097330}
-  - {fileID: 1284985017}
-  - {fileID: 1320589347}
-  - {fileID: 314657035}
-  - {fileID: 1996428746}
-  m_Father: {fileID: 555581799}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &126806296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,6 +1585,7 @@ GameObject:
   - component: {fileID: 219745854}
   - component: {fileID: 219745855}
   - component: {fileID: 219745857}
+  - component: {fileID: 219745858}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -1749,9 +1682,11 @@ MonoBehaviour:
   animator: {fileID: 729500506}
   stepTrigger: Step
   blockTrigger: BlockStep
-  trafficManager: {fileID: 1062496670}
+  trafficManager: {fileID: 0}
   playerSide: {fileID: 11400000, guid: bb68e3032d1734d72a394dd402d0806f, type: 2}
   playerCrossing: {fileID: 11400000, guid: 98fb21f286fae45f6859445986896062, type: 2}
+  stepDecrease: {fileID: 11400000, guid: 8d952b19595594a22b41ad0aad34ed47, type: 2}
+  stepIncrease: {fileID: 0}
 --- !u!114 &219745853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1866,6 +1801,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &219745858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219745845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: BogGames.Events::BogGames.Events.ScriptableGameEventListener
+  Event: {fileID: 11400000, guid: 283727a5782624aa8b26241b7d633a64, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 8d952b19595594a22b41ad0aad34ed47, type: 2}
+        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
+        m_MethodName: Subtract
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.0075
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &222569812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1974,7 +1937,6 @@ GameObject:
   - component: {fileID: 231379577}
   - component: {fileID: 231379580}
   - component: {fileID: 231379579}
-  - component: {fileID: 231379578}
   m_Layer: 0
   m_Name: WaveHandler
   m_TagString: Untagged
@@ -1997,34 +1959,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 610527786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &231379578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231379576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: BogGames.Events::BogGames.Events.ScriptableGameEventListener
-  Event: {fileID: 11400000, guid: 283727a5782624aa8b26241b7d633a64, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 3ac8f24f9975b4b8abcfc47d148f34a4, type: 2}
-        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
-        m_MethodName: Add
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.025
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &231379579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2266,13 +2200,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291902267}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 5, y: -5}
+  m_EffectDistance: {x: 2, y: -0.5}
   m_UseGraphicAlpha: 1
 --- !u!114 &291902271
 MonoBehaviour:
@@ -2331,7 +2265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
+  m_Color: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2493,129 +2427,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: BogGames.Cameras.CameraTriggerArea, BogGames.Cameras
         m_MethodName: SwitchCamera
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!1 &314657033
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 314657035}
-  - component: {fileID: 314657034}
-  - component: {fileID: 314657036}
-  - component: {fileID: 314657037}
-  m_Layer: 0
-  m_Name: TrafficSpawnerNodeBridgeRight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &314657034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314657033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0150ea6c2c77a4e3189cf2a53c3cebcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 1116097331}
-  channel: 2
-  spawnedCar: {fileID: 0}
-  vehicleTypes:
-  - {fileID: 11400000, guid: 0757169aab814489997e7aa759f9aaeb, type: 2}
-  - {fileID: 11400000, guid: 9fb3a85352c6a49768e8c761d3eeb76a, type: 2}
-  - {fileID: 11400000, guid: 1f50f1c9148bf42bcab9ebc7bc05fe60, type: 2}
-  - {fileID: 11400000, guid: 5c30597a2f6f2452e98c5118c18ada7e, type: 2}
-  - {fileID: 11400000, guid: d2853e97ba6434633b3e523852c5f9a1, type: 2}
-  - {fileID: 11400000, guid: d211e82dcde0a47839d048ebb567d618, type: 2}
-  - {fileID: 11400000, guid: 51b743a053805478fa9bdb41de520d8e, type: 2}
-  - {fileID: 11400000, guid: de654889f3f3048f593c2e8258263467, type: 2}
-  - {fileID: 11400000, guid: 23b6605464fb04682ab728285f01ebd7, type: 2}
-  spawnPoint: {fileID: 314657035}
-  exitPoint: {fileID: 1955073135}
-  laneGroupId: 2
-  defaultLifetime: 30
-  onCarSpawned:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!4 &314657035
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314657033}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3.2000003, y: 0, z: -1.3247501}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1955073135}
-  m_Father: {fileID: 125504531}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &314657036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314657033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: bfa1985f39b104593b4e1350b943b94f, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 314657034}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.TrafficSpawnerNode, BogGames.Gameplay
-        m_MethodName: StartSpawning
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &314657037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314657033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: c26e231f7ad7e4a0ea5872fa453157d7, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 314657034}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.TrafficSpawnerNode, BogGames.Gameplay
-        m_MethodName: StartSpawning
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3853,7 +3664,7 @@ Transform:
   - {fileID: 219745849}
   - {fileID: 126806297}
   - {fileID: 1668824749}
-  - {fileID: 125504531}
+  - {fileID: 1246739031}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &556261535
@@ -4476,37 +4287,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 618247351}
   m_CullTransparentMesh: 1
---- !u!1 &625712558
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 625712559}
-  m_Layer: 0
-  m_Name: Exit
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &625712559
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 625712558}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0000014305115, y: 0, z: 22.684896}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1996428746}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &633755185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4582,7 +4362,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 655893466}
-  - component: {fileID: 655893468}
   - component: {fileID: 655893469}
   m_Layer: 0
   m_Name: CarSpawnerBelowR
@@ -4608,94 +4387,6 @@ Transform:
   - {fileID: 1952141651}
   m_Father: {fileID: 1246739031}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &655893468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 655893464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: BogGames.Events::BogGames.Events.ScriptableGameEventListener
-  Event: {fileID: 11400000, guid: 283727a5782624aa8b26241b7d633a64, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: c18dcf2ce82f743ce94d1f3dee6d5980, type: 2}
-        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
-        m_MethodName: Subtract
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.05
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 45406ab7ceb8646399137ea7817986c4, type: 2}
-        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
-        m_MethodName: Subtract
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: f0101a97e3bf94173a2282efd00f9305, type: 2}
-        m_TargetAssemblyTypeName: BogGames.Variables.BogIntegerVariable, BogGames.Variables
-        m_MethodName: Add
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: debf6191cf427427792b55b665443a91, type: 2}
-        m_TargetAssemblyTypeName: BogGames.Variables.BogIntegerVariable, BogGames.Variables
-        m_MethodName: Add
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 6c7ad1c6a41af4618b80782754c8571b, type: 2}
-        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
-        m_MethodName: Add
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0.1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: d480476f766294dda9a50a91e26a5870, type: 2}
-        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
-        m_MethodName: Add
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0.1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &655893469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4995,11 +4686,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 836283826}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 368.851}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 92}
   m_SizeDelta: {x: 1024, y: 1024}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &681885914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5454,37 +5145,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741242332}
   m_CullTransparentMesh: 1
---- !u!1 &764528291
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 764528292}
-  m_Layer: 0
-  m_Name: Exit
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &764528292
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764528291}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 38.16525}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1320589347}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &780511319
 GameObject:
   m_ObjectHideFlags: 0
@@ -5563,8 +5223,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startDelay: 10
-  decayFactor: 0.2
+  decayFactor: 4
   minDelay: 4
+  maxDelay: 40
+  increase: 1
   timerEvent:
     m_PersistentCalls:
       m_Calls:
@@ -5999,8 +5661,8 @@ CanvasGroup:
   m_GameObject: {fileID: 798452535}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &798925294
 GameObject:
@@ -7612,108 +7274,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938260076}
   m_CullTransparentMesh: 1
---- !u!1 &950343706
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 950343710}
-  - component: {fileID: 950343709}
-  - component: {fileID: 950343708}
-  - component: {fileID: 950343707}
-  m_Layer: 5
-  m_Name: Canvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &950343707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950343706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &950343708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950343706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
---- !u!223 &950343709
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950343706}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 50
-  m_TargetDisplay: 0
---- !u!224 &950343710
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950343706}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1280349524}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
 --- !u!1 &957625709
 GameObject:
   m_ObjectHideFlags: 0
@@ -7728,7 +7288,7 @@ GameObject:
   - component: {fileID: 957625710}
   - component: {fileID: 957625714}
   m_Layer: 5
-  m_Name: PauseMenu
+  m_Name: PauseMenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7877,6 +7437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6291de5123c054b778374c2ff6c8f9c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxMultiplier: 10
   activeCar: {fileID: 11400000, guid: bdf405d1d92e64ed5a1cfcb3869b1cda, type: 2}
   scoreVariable: {fileID: 11400000, guid: 6cf19ad70ab2c4d70a53d3fc124efef9, type: 2}
   activeCarScore: {fileID: 11400000, guid: 106b1c1f19c4f492d9923e8f1aefac24, type: 2}
@@ -8217,120 +7778,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 497d5d490226948ef8f8ebffdfaf9a14, type: 3}
   m_PrefabInstance: {fileID: 1048575314}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1062496669
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1062496671}
-  - component: {fileID: 1062496670}
-  - component: {fileID: 1062496672}
-  m_Layer: 0
-  m_Name: TrafficConductor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1062496670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062496669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c77de28badc94ac0ad79be16f820ae3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  belowSpawnsPerMin: 30
-  bridgeSpawnsPerMin: 15
-  speedMultiplier: 0.8
-  minHeadwaySeconds: 0.1
-  readableLeadTime: 0.2
-  graceSeconds: 3
-  rampSeconds: 4
-  maxInhibitPct: 0.77
-  maxBoostPct: 0.766
-  maxRareBoost: 1
-  useWaves: 1
-  waveDuration: 10
-  breakDuration: 3
-  waveRateMultiplier: 1
-  playerSide: 0
-  playerIsCrossing: 0
-  randomSeed: 12345
---- !u!4 &1062496671
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062496669}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.72677, y: -1, z: -1.47426}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 125504531}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1062496672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062496669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 283727a5782624aa8b26241b7d633a64, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1116097331}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.TrafficConductor, BogGames.Gameplay
-        m_MethodName: IncreaseSpeedMultiplier
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1116097331}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.TrafficConductor, BogGames.Gameplay
-        m_MethodName: IncreaseSpawnsPerMin
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 12
-          m_FloatArgument: 0.05
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1116097331}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.TrafficConductor, BogGames.Gameplay
-        m_MethodName: IncreaseWaveMultiplier
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &1094614153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8828,108 +8275,6 @@ MonoBehaviour:
         DebugActive: 0
         TargetCanvasGroup: {fileID: 957625714}
         ShouldBlockRaycasts: 0
---- !u!1 &1116097329
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1116097330}
-  - component: {fileID: 1116097331}
-  - component: {fileID: 1116097332}
-  m_Layer: 0
-  m_Name: TrafficConductorBridge
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1116097330
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116097329}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.72677, y: -1, z: -1.47426}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 125504531}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1116097331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116097329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c77de28badc94ac0ad79be16f820ae3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  belowSpawnsPerMin: 25
-  bridgeSpawnsPerMin: 15
-  speedMultiplier: 0.5
-  minHeadwaySeconds: 0.2
-  readableLeadTime: 0.5
-  graceSeconds: 2
-  rampSeconds: 6
-  maxInhibitPct: 0.6
-  maxBoostPct: 0.5
-  maxRareBoost: 2
-  useWaves: 0
-  waveDuration: 10
-  breakDuration: 5
-  waveRateMultiplier: 3
-  playerSide: 0
-  playerIsCrossing: 0
-  randomSeed: 12345
---- !u!114 &1116097332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116097329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 283727a5782624aa8b26241b7d633a64, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1116097331}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.TrafficConductor, BogGames.Gameplay
-        m_MethodName: IncreaseSpeedMultiplier
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.01
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1116097331}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.TrafficConductor, BogGames.Gameplay
-        m_MethodName: IncreaseSpawnsPerMin
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0.05
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1129277534
 GameObject:
   m_ObjectHideFlags: 0
@@ -9596,8 +8941,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1246739031}
+  - component: {fileID: 1246739032}
   m_Layer: 0
-  m_Name: NewSpawners
+  m_Name: CarSpawners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9611,8 +8957,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246739030}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.12271, y: 0.15533, z: -0.35}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.51739, y: 0.15533, z: -1.84975}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9620,8 +8966,134 @@ Transform:
   - {fileID: 610527786}
   - {fileID: 1902396787}
   - {fileID: 410038120}
-  m_Father: {fileID: 0}
+  - {fileID: 1457074588}
+  - {fileID: 1603409301}
+  m_Father: {fileID: 555581799}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1246739032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246739030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: BogGames.Events::BogGames.Events.ScriptableGameEventListener
+  Event: {fileID: 11400000, guid: 283727a5782624aa8b26241b7d633a64, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: c18dcf2ce82f743ce94d1f3dee6d5980, type: 2}
+        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
+        m_MethodName: Subtract
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.05
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 45406ab7ceb8646399137ea7817986c4, type: 2}
+        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
+        m_MethodName: Subtract
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: f0101a97e3bf94173a2282efd00f9305, type: 2}
+        m_TargetAssemblyTypeName: BogGames.Variables.BogIntegerVariable, BogGames.Variables
+        m_MethodName: Add
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: debf6191cf427427792b55b665443a91, type: 2}
+        m_TargetAssemblyTypeName: BogGames.Variables.BogIntegerVariable, BogGames.Variables
+        m_MethodName: Add
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 6c7ad1c6a41af4618b80782754c8571b, type: 2}
+        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
+        m_MethodName: Add
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0.1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: d480476f766294dda9a50a91e26a5870, type: 2}
+        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
+        m_MethodName: Add
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0.1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: d480476f766294dda9a50a91e26a5870, type: 2}
+        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
+        m_MethodName: Add
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0.1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 29bb36056c70444d1930d48c44bde774, type: 2}
+        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
+        m_MethodName: Add
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0.1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 3ac8f24f9975b4b8abcfc47d148f34a4, type: 2}
+        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
+        m_MethodName: Add
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0.1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1249933507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10179,495 +9651,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 126806297}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &1280349523
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1280349524}
-  - component: {fileID: 1280349527}
-  - component: {fileID: 1280349526}
-  - component: {fileID: 1280349525}
-  m_Layer: 5
-  m_Name: Button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1280349524
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280349523}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2054574684}
-  m_Father: {fileID: 950343710}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -200}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0, y: 1}
---- !u!114 &1280349525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280349523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1280349526}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 655893469}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.CarSpawner, BogGames.Gameplay
-        m_MethodName: SpawnObjectSet
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1952141650}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.CountdownMultiplier, BogGames.Gameplay
-        m_MethodName: StartTimer
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 3e15efeff760c49f1803c15aef111848, type: 2}
-          m_ObjectArgumentAssemblyTypeName: BogGames.Variables.BogFloatVariable,
-            BogGames.Variables
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 610527784}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.CarSpawner, BogGames.Gameplay
-        m_MethodName: SpawnObjectSet
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 231379580}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.CountdownMultiplier, BogGames.Gameplay
-        m_MethodName: StartTimer
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: e387720b2f6814ad886bae780fbb309c, type: 2}
-          m_ObjectArgumentAssemblyTypeName: BogGames.Variables.BogFloatVariable,
-            BogGames.Variables
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1902396785}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.CarSpawner, BogGames.Gameplay
-        m_MethodName: SpawnObjectSet
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1441375866}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.CountdownMultiplier, BogGames.Gameplay
-        m_MethodName: StartTimer
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 2e216d60bb2ae4a289347ab5b618fcf0, type: 2}
-          m_ObjectArgumentAssemblyTypeName: BogGames.Variables.BogFloatVariable,
-            BogGames.Variables
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 410038118}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.CarSpawner, BogGames.Gameplay
-        m_MethodName: SpawnObjectSet
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2018587989}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.CountdownMultiplier, BogGames.Gameplay
-        m_MethodName: StartTimer
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 02480b2a9b5354db29191023529b17e8, type: 2}
-          m_ObjectArgumentAssemblyTypeName: BogGames.Variables.BogFloatVariable,
-            BogGames.Variables
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1280349526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280349523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1280349527
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280349523}
-  m_CullTransparentMesh: 1
---- !u!1 &1284985015
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1284985017}
-  - component: {fileID: 1284985016}
-  - component: {fileID: 1284985018}
-  - component: {fileID: 1284985019}
-  m_Layer: 0
-  m_Name: TrafficSpawnerNodeBelowRight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1284985016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284985015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0150ea6c2c77a4e3189cf2a53c3cebcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 1062496670}
-  channel: 1
-  spawnedCar: {fileID: 11400000, guid: f096257643ceb429eba3fd3adf874ef3, type: 2}
-  vehicleTypes:
-  - {fileID: 11400000, guid: 0757169aab814489997e7aa759f9aaeb, type: 2}
-  - {fileID: 11400000, guid: 62255388fb726473b8e93039bbd6c04c, type: 2}
-  - {fileID: 11400000, guid: 23b6605464fb04682ab728285f01ebd7, type: 2}
-  - {fileID: 11400000, guid: 051eec3b23af74e9fb73509ab4360622, type: 2}
-  - {fileID: 11400000, guid: 6799fa0f2420d466fab900bc917b9ad3, type: 2}
-  - {fileID: 11400000, guid: 5c30597a2f6f2452e98c5118c18ada7e, type: 2}
-  - {fileID: 11400000, guid: d211e82dcde0a47839d048ebb567d618, type: 2}
-  - {fileID: 11400000, guid: 51b743a053805478fa9bdb41de520d8e, type: 2}
-  spawnPoint: {fileID: 1284985017}
-  exitPoint: {fileID: 106886379}
-  laneGroupId: 0
-  defaultLifetime: 30
-  onCarSpawned:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: e32dff449c8bf40d5908b3b2fedea19b, type: 2}
-        m_TargetAssemblyTypeName: BogGames.Events.ScriptableGameEvent, BogGames.Events
-        m_MethodName: Raise
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!4 &1284985017
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284985015}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -1.476386, y: -0.34, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 106886379}
-  m_Father: {fileID: 125504531}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &1284985018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284985015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: bfa1985f39b104593b4e1350b943b94f, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1284985016}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.TrafficSpawnerNode, BogGames.Gameplay
-        m_MethodName: StartSpawning
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1284985019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284985015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: c26e231f7ad7e4a0ea5872fa453157d7, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1284985016}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.TrafficSpawnerNode, BogGames.Gameplay
-        m_MethodName: StartSpawning
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!1 &1320589345
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1320589347}
-  - component: {fileID: 1320589346}
-  - component: {fileID: 1320589348}
-  - component: {fileID: 1320589349}
-  m_Layer: 0
-  m_Name: TrafficSpawnerNodeBelowLeft
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1320589346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320589345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0150ea6c2c77a4e3189cf2a53c3cebcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 1062496670}
-  channel: 0
-  spawnedCar: {fileID: 11400000, guid: f096257643ceb429eba3fd3adf874ef3, type: 2}
-  vehicleTypes:
-  - {fileID: 11400000, guid: 0757169aab814489997e7aa759f9aaeb, type: 2}
-  - {fileID: 11400000, guid: 62255388fb726473b8e93039bbd6c04c, type: 2}
-  - {fileID: 11400000, guid: 23b6605464fb04682ab728285f01ebd7, type: 2}
-  - {fileID: 11400000, guid: 051eec3b23af74e9fb73509ab4360622, type: 2}
-  - {fileID: 11400000, guid: 6799fa0f2420d466fab900bc917b9ad3, type: 2}
-  - {fileID: 11400000, guid: 5c30597a2f6f2452e98c5118c18ada7e, type: 2}
-  - {fileID: 11400000, guid: d211e82dcde0a47839d048ebb567d618, type: 2}
-  - {fileID: 11400000, guid: 51b743a053805478fa9bdb41de520d8e, type: 2}
-  spawnPoint: {fileID: 1320589347}
-  exitPoint: {fileID: 764528292}
-  laneGroupId: 1
-  defaultLifetime: 30
-  onCarSpawned:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: e32dff449c8bf40d5908b3b2fedea19b, type: 2}
-        m_TargetAssemblyTypeName: BogGames.Events.ScriptableGameEvent, BogGames.Events
-        m_MethodName: Raise
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!4 &1320589347
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320589345}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.803814, y: -0.34, z: -10.09}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 764528292}
-  m_Father: {fileID: 125504531}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1320589348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320589345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: bfa1985f39b104593b4e1350b943b94f, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1320589346}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.TrafficSpawnerNode, BogGames.Gameplay
-        m_MethodName: StartSpawning
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1320589349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320589345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: c26e231f7ad7e4a0ea5872fa453157d7, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1320589346}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.TrafficSpawnerNode, BogGames.Gameplay
-        m_MethodName: StartSpawning
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1324492233
 GameObject:
   m_ObjectHideFlags: 0
@@ -10737,11 +9720,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 836283826}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 600, y: 150}
-  m_Pivot: {x: 1, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 50, y: 150}
+  m_SizeDelta: {x: 674.0618, y: 150}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1344083874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10796,7 +9779,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -10827,7 +9810,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -220.24603, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -11505,7 +10488,6 @@ GameObject:
   - component: {fileID: 1441375863}
   - component: {fileID: 1441375866}
   - component: {fileID: 1441375865}
-  - component: {fileID: 1441375864}
   m_Layer: 0
   m_Name: WaveHandler
   m_TagString: Untagged
@@ -11528,34 +10510,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1902396787}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1441375864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441375862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: BogGames.Events::BogGames.Events.ScriptableGameEventListener
-  Event: {fileID: 11400000, guid: 283727a5782624aa8b26241b7d633a64, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 3ac8f24f9975b4b8abcfc47d148f34a4, type: 2}
-        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
-        m_MethodName: Add
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.025
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1441375865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11669,7 +10623,7 @@ MonoBehaviour:
   campingRarityMultiplier: {fileID: 11400000, guid: 29bb36056c70444d1930d48c44bde774, type: 2}
   playerSide: 1
   waitTime: 5
-  targetValue: 5
+  targetValue: 3.5
   timeToFill: 25
 --- !u!4 &1457074588
 Transform:
@@ -11680,11 +10634,11 @@ Transform:
   m_GameObject: {fileID: 1457074586}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.19768, y: -1, z: 3.15563}
+  m_LocalPosition: {x: 0.07497, y: -1.15533, z: 3.50563}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1246739031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1479208419
 GameObject:
@@ -14284,11 +13238,11 @@ RectTransform:
   - {fileID: 2073870981}
   m_Father: {fileID: 836283826}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -150, y: 50}
   m_SizeDelta: {x: 150, y: 150}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &1589011420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14453,7 +13407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: BogGames.Gameplay::BogGames.Gameplay.CampingTimer
   playerSideVariable: {fileID: 11400000, guid: bb68e3032d1734d72a394dd402d0806f, type: 2}
   campingDampener: {fileID: 11400000, guid: 396048782fc77430d8a7309f51d1a24b, type: 2}
-  campingRarityMultiplier: {fileID: 11400000, guid: 6734592aa4ec340cd83f9271fdc17251, type: 2}
+  campingRarityMultiplier: {fileID: 11400000, guid: 29bb36056c70444d1930d48c44bde774, type: 2}
   playerSide: 0
   waitTime: 5
   targetValue: 5
@@ -14466,12 +13420,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603409299}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19768, y: -1, z: 3.15563}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.07497, y: -1.15533, z: 3.50563}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1246739031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1608832790
 PrefabInstance:
@@ -17275,6 +16229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1668824749}
   - component: {fileID: 1668824750}
+  - component: {fileID: 1668824756}
   - component: {fileID: 1668824751}
   - component: {fileID: 1668824752}
   - component: {fileID: 1668824754}
@@ -17639,6 +16594,122 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1668824756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668824748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: BogGames.Events::BogGames.Events.ScriptableGameEventListener
+  Event: {fileID: 11400000, guid: c26e231f7ad7e4a0ea5872fa453157d7, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 655893469}
+        m_TargetAssemblyTypeName: BogGames.Gameplay.CarSpawner, BogGames.Gameplay
+        m_MethodName: SpawnObjectSet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1952141650}
+        m_TargetAssemblyTypeName: BogGames.Gameplay.CountdownMultiplier, BogGames.Gameplay
+        m_MethodName: StartTimer
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 3e15efeff760c49f1803c15aef111848, type: 2}
+          m_ObjectArgumentAssemblyTypeName: BogGames.Variables.BogFloatVariable,
+            BogGames.Variables
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 610527784}
+        m_TargetAssemblyTypeName: BogGames.Gameplay.CarSpawner, BogGames.Gameplay
+        m_MethodName: SpawnObjectSet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 231379580}
+        m_TargetAssemblyTypeName: BogGames.Gameplay.CountdownMultiplier, BogGames.Gameplay
+        m_MethodName: StartTimer
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: e387720b2f6814ad886bae780fbb309c, type: 2}
+          m_ObjectArgumentAssemblyTypeName: BogGames.Variables.BogFloatVariable,
+            BogGames.Variables
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1902396785}
+        m_TargetAssemblyTypeName: BogGames.Gameplay.CarSpawner, BogGames.Gameplay
+        m_MethodName: SpawnObjectSet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1441375866}
+        m_TargetAssemblyTypeName: BogGames.Gameplay.CountdownMultiplier, BogGames.Gameplay
+        m_MethodName: StartTimer
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 2e216d60bb2ae4a289347ab5b618fcf0, type: 2}
+          m_ObjectArgumentAssemblyTypeName: BogGames.Variables.BogFloatVariable,
+            BogGames.Variables
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 410038118}
+        m_TargetAssemblyTypeName: BogGames.Gameplay.CarSpawner, BogGames.Gameplay
+        m_MethodName: SpawnObjectSet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2018587989}
+        m_TargetAssemblyTypeName: BogGames.Gameplay.CountdownMultiplier, BogGames.Gameplay
+        m_MethodName: StartTimer
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 02480b2a9b5354db29191023529b17e8, type: 2}
+          m_ObjectArgumentAssemblyTypeName: BogGames.Variables.BogFloatVariable,
+            BogGames.Variables
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -18675,7 +17746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1813506954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18786,6 +17857,34 @@ MonoBehaviour:
   - Rect: {fileID: 2092759069}
     Speed: 5
     Amplitude: 25
+    StartPosition: {x: 0, y: 0}
+    Active: 1
+    ForceZPosition: 0
+    ForcedZPosition: 0
+  - Rect: {fileID: 2092759069}
+    Speed: 5
+    Amplitude: 25
+    StartPosition: {x: 0, y: 0}
+    Active: 1
+    ForceZPosition: 0
+    ForcedZPosition: 0
+  - Rect: {fileID: 1589011419}
+    Speed: 2
+    Amplitude: 5
+    StartPosition: {x: 0, y: 0}
+    Active: 1
+    ForceZPosition: 0
+    ForcedZPosition: 0
+  - Rect: {fileID: 291902268}
+    Speed: 3
+    Amplitude: 10
+    StartPosition: {x: 0, y: 0}
+    Active: 1
+    ForceZPosition: 0
+    ForcedZPosition: 0
+  - Rect: {fileID: 1344083873}
+    Speed: 6
+    Amplitude: 20
     StartPosition: {x: 0, y: 0}
     Active: 1
     ForceZPosition: 0
@@ -20488,7 +19587,6 @@ GameObject:
   - component: {fileID: 1952141651}
   - component: {fileID: 1952141650}
   - component: {fileID: 1952141652}
-  - component: {fileID: 1952141653}
   m_Layer: 0
   m_Name: WaveHandler
   m_TagString: Untagged
@@ -20590,65 +19688,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1952141653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1952141649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: BogGames.Events::BogGames.Events.ScriptableGameEventListener
-  Event: {fileID: 11400000, guid: 283727a5782624aa8b26241b7d633a64, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 3ac8f24f9975b4b8abcfc47d148f34a4, type: 2}
-        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
-        m_MethodName: Add
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.025
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!1 &1955073134
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1955073135}
-  m_Layer: 0
-  m_Name: Exit
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1955073135
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1955073134}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0000014305115, y: 0, z: 22.340097}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 314657035}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1955987228
 GameObject:
   m_ObjectHideFlags: 0
@@ -21056,6 +20095,7 @@ GameObject:
   - component: {fileID: 1990720893}
   - component: {fileID: 1990720892}
   - component: {fileID: 1990720891}
+  - component: {fileID: 1990720894}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -21164,15 +20204,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 0.92156863}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e802b29e86b4ef74abe728250ecaf37c, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: d2695c17ee9e645c5920e58356c5e4a4, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -21189,129 +20229,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990720889}
   m_CullTransparentMesh: 1
---- !u!1 &1996428744
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1996428746}
-  - component: {fileID: 1996428745}
-  - component: {fileID: 1996428747}
-  - component: {fileID: 1996428748}
-  m_Layer: 0
-  m_Name: TrafficSpawnerNodeBridgeLeft
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1996428745
+--- !u!114 &1990720894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996428744}
+  m_GameObject: {fileID: 1990720889}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0150ea6c2c77a4e3189cf2a53c3cebcb, type: 3}
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 1116097331}
-  channel: 2
-  spawnedCar: {fileID: 0}
-  vehicleTypes:
-  - {fileID: 11400000, guid: 0757169aab814489997e7aa759f9aaeb, type: 2}
-  - {fileID: 11400000, guid: 9fb3a85352c6a49768e8c761d3eeb76a, type: 2}
-  - {fileID: 11400000, guid: 1f50f1c9148bf42bcab9ebc7bc05fe60, type: 2}
-  - {fileID: 11400000, guid: 5c30597a2f6f2452e98c5118c18ada7e, type: 2}
-  - {fileID: 11400000, guid: d2853e97ba6434633b3e523852c5f9a1, type: 2}
-  - {fileID: 11400000, guid: d211e82dcde0a47839d048ebb567d618, type: 2}
-  - {fileID: 11400000, guid: 51b743a053805478fa9bdb41de520d8e, type: 2}
-  - {fileID: 11400000, guid: de654889f3f3048f593c2e8258263467, type: 2}
-  - {fileID: 11400000, guid: 23b6605464fb04682ab728285f01ebd7, type: 2}
-  spawnPoint: {fileID: 1996428746}
-  exitPoint: {fileID: 625712559}
-  laneGroupId: 2
-  defaultLifetime: 30
-  onCarSpawned:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!4 &1996428746
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996428744}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -7, y: 0, z: -1.67475}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 625712559}
-  m_Father: {fileID: 125504531}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &1996428747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996428744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: bfa1985f39b104593b4e1350b943b94f, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1996428745}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.TrafficSpawnerNode, BogGames.Gameplay
-        m_MethodName: StartSpawning
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1996428748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996428744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: c26e231f7ad7e4a0ea5872fa453157d7, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1996428745}
-        m_TargetAssemblyTypeName: BogGames.Gameplay.TrafficSpawnerNode, BogGames.Gameplay
-        m_MethodName: StartSpawning
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Shadow
+  m_EffectColor: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 0.74509805}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2004837406
 GameObject:
   m_ObjectHideFlags: 0
@@ -21354,7 +20286,6 @@ GameObject:
   - component: {fileID: 2018587986}
   - component: {fileID: 2018587989}
   - component: {fileID: 2018587988}
-  - component: {fileID: 2018587987}
   m_Layer: 0
   m_Name: WaveHandler
   m_TagString: Untagged
@@ -21377,34 +20308,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 410038120}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2018587987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018587985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4dcdab81d0c24b1a86e3dd12f3f66bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: BogGames.Events::BogGames.Events.ScriptableGameEventListener
-  Event: {fileID: 11400000, guid: 283727a5782624aa8b26241b7d633a64, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 3ac8f24f9975b4b8abcfc47d148f34a4, type: 2}
-        m_TargetAssemblyTypeName: BogGames.Variables.BogFloatVariable, BogGames.Variables
-        m_MethodName: Add
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.025
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2018587988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21883,142 +20786,6 @@ MonoBehaviour:
   color1: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
   color2: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 0.4627451}
   horizontal: 0
---- !u!1 &2054574683
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2054574684}
-  - component: {fileID: 2054574686}
-  - component: {fileID: 2054574685}
-  m_Layer: 5
-  m_Name: Text (TMP)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2054574684
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2054574683}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1280349524}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2054574685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2054574683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: Button
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_EmojiFallbackSupport: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &2054574686
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2054574683}
-  m_CullTransparentMesh: 1
 --- !u!1 &2073870980
 GameObject:
   m_ObjectHideFlags: 0
@@ -22958,13 +21725,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 2078866305}
   - {fileID: 257361848}
-  - {fileID: 1324492234}
   - {fileID: 1813506957}
   - {fileID: 798452539}
   - {fileID: 1873264587}
   - {fileID: 957625713}
+  - {fileID: 1324492234}
   - {fileID: 555581799}
-  - {fileID: 950343710}
-  - {fileID: 1246739031}
-  - {fileID: 1457074588}
-  - {fileID: 1603409301}

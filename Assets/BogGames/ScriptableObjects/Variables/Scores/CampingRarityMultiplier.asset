@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c96ce684e509477e871844d3db8c1ad, type: 3}
-  m_Name: CountdownMultiplier
+  m_Name: CampingRarityMultiplier
   m_EditorClassIdentifier: BogGames.Variables::BogGames.Variables.BogFloatVariable
-  value: 1
-  minValueAllowed: 1
+  value: 0
+  minValueAllowed: 0

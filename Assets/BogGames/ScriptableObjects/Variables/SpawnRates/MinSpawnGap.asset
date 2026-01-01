@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c96ce684e509477e871844d3db8c1ad, type: 3}
   m_Name: MinSpawnGap
   m_EditorClassIdentifier: BogGames.Variables::BogGames.Variables.BogFloatVariable
-  value: 0.85
+  value: 2
   minValueAllowed: 1.5

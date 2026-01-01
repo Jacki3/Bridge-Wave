@@ -6,10 +6,11 @@ namespace BogGames.Variables
     public class BogIntegerVariable :  BogBaseVariable<int>
     {
         [SerializeField] protected int minValueAllowed;
+        [SerializeField] protected int maxValueAllowed;
 
         public override void Add(int value)
         {
-            Value += value;
+            Value = Mathf.Max(Value + value, maxValueAllowed);
         }
 
         public override void Subtract(int value)

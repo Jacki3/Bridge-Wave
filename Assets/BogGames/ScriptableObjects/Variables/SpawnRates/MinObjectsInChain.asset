@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e33640fe82b14a11a18711105695e96, type: 3}
   m_Name: MinObjectsInChain
   m_EditorClassIdentifier: BogGames.Variables::BogGames.Variables.BogIntegerVariable
-  value: 2
+  value: 1
   minValueAllowed: 1
