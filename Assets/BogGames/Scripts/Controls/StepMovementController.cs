@@ -1,7 +1,6 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
 using BogGames.Gameplay;
 using BogGames.Variables;
+using UnityEngine;
 
 namespace BogGames.Controls
 {
@@ -33,7 +32,6 @@ namespace BogGames.Controls
         public string blockTrigger = "BlockStep";
 
         [Header("Variables")]
-        public TrafficConductor trafficManager;
         public BogSideVariable playerSide;
         public BogBooleanVariable playerCrossing;
         public BogFloatVariable stepDecrease;
@@ -56,20 +54,17 @@ namespace BogGames.Controls
             midpoint = transform.position.z;
         }
 
-        private void OnEnable()  => controls.Player.Enable();
+        private void OnEnable() => controls.Player.Enable();
         private void OnDisable() => controls.Player.Disable();
 
         private void Update()
         {
-            if(!trafficManager)
-                return;
-
-            if(transform.position.z > maxZ)
+            if (transform.position.z > maxZ)
             {
                 isCrossing = false;
                 currentSide = Side.Right;
             }
-            else if(transform.position.z < minZ)
+            else if (transform.position.z < minZ)
             {
                 isCrossing = false;
                 currentSide = Side.Left;
@@ -80,13 +75,11 @@ namespace BogGames.Controls
                 isCrossing = true;
             }
 
-            if(playerCrossing != null)
+            if (playerCrossing != null)
                 playerCrossing.Value = isCrossing;
 
-            if(playerSide != null)
+            if (playerSide != null)
                 playerSide.Value = currentSide;
-
-            trafficManager.SetPlayerState(currentSide, isCrossing);
         }
 
         private void FaceDirection(float yaw)
@@ -115,11 +108,11 @@ namespace BogGames.Controls
             lastStepTime = Time.time;
 
             FaceDirection(direction > 0 ? forwardYaw : backwardYaw);
-            
-            if (direction > 0 && this.transform.position.z !< maxZ)
+
+            if (direction > 0 && this.transform.position.z! < maxZ)
                 StepSuccess(true);
 
-            if(direction < 0 && this.transform.position.z !> minZ)
+            if (direction < 0 && this.transform.position.z! > minZ)
                 StepSuccess(false);
         }
 
@@ -132,9 +125,9 @@ namespace BogGames.Controls
 
             lastStepTime = Time.time;
 
-            if(transform.position.z > maxZ)
+            if (transform.position.z > maxZ)
                 direction = -1;
-            if(transform.position.z < minZ)
+            if (transform.position.z < minZ)
                 direction = 1;
 
             FaceDirection(direction > 0 ? forwardYaw : backwardYaw);
@@ -152,7 +145,7 @@ namespace BogGames.Controls
 
         protected void StepSuccess(bool forward)
         {
-            if(forward)
+            if (forward)
                 transform.position += Vector3.forward * stepDistance;
             else
                 transform.position += Vector3.back * stepDistance;
